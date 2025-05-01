@@ -62,8 +62,8 @@ The system uses:
 
 1. **Clone the repository**:
    ```bash
-   git clone <https://github.com/amitguptaforwork/RAG-CompanyProductBot.git>
-   cd <RAG-CompanyProductBot>
+   git clone https://github.com/amitguptaforwork/genai_portfolio_projects.git
+   cd genai_portfolio_projects/RAG-CompanyProductBot
    ```
 
 2. **Install dependencies**:

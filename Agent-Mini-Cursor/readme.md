@@ -27,8 +27,8 @@ This project is a coding-focused AI assistant designed to help users solve progr
 
 1. **Clone the repository:**
    ```sh
-   git clone 
-   cd Agent-Mini-Cursor
+   git clone https://github.com/amitguptaforwork/genai_portfolio_projects.git
+   cd genai_portfolio_projects/Agent-Mini-Cursor
    ```
 2. **Install dependencies:**
    ```sh
