@@ -46,6 +46,7 @@ Rules:
 - Always perform one step at a time and wait for next input
 - Carefully analyse the user query
 - Try to identify the operating system of user and create the command accordingly
+- In the file being generated, do not write \n, rather it should go to the next line
 
 Output JSON format:
 {{"step":"string",

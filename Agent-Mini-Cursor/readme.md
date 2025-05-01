@@ -2,7 +2,7 @@
 
 ## Project Description
 
-This project is a coding-focused AI assistant designed to help users solve programming problems and answer coding-related queries. The assistant follows a structured, step-by-step process—**Start, Plan, Action, Observe, and Output**—to ensure clear and logical problem-solving. It can execute terminal commands securely and provide detailed explanations for each step in the process[7][9].
+This project is a coding-focused AI assistant designed to help users solve programming problems and answer coding-related queries. The assistant follows a structured, step-by-step process—**Start, Plan, Action, Observe, and Output**—to ensure clear and logical problem-solving. It can execute terminal commands securely and provide detailed explanations for each step in the process.
 
 ## Features
 
@@ -28,24 +28,29 @@ This project is a coding-focused AI assistant designed to help users solve progr
 1. **Clone the repository:**
    ```sh
    git clone 
-   cd Mini-Cursor
+   cd Agent-Mini-Cursor
    ```
 2. **Install dependencies:**
    ```sh
    pip install -r requirements.txt
    ```
 3. **Set up environment variables:**
-   - Create a `.env` file in the project root.
-   - Add your Google API key:
+   - Create a `.env` file in the project root.  There is a .envSAMPLE file provided which can be used for the purpose.
+   - Add your keys, Gemini and/or OpenAI.  
      ```
      GEMINI_API_KEY=your_google_api_key_here
      ```
-
+   - Depending upon what you want to use (gemini or openai), modify these lines in CursorAgent.py
+  ```python
+   #Use this line to choose the LLM provider
+   client, model = LLMFactory.getLLMClientAndModel("gemini")
+   #client, model = LLMFactory.getLLMClientAndModel("openai")
+   ```
 ## Usage
 
 - Run the main script:
   ```sh
-  python main.py
+  python CursorAgent.py
   ```
 - Enter your coding-related queries at the prompt.
 - The assistant will:
@@ -69,7 +74,7 @@ This project is a coding-focused AI assistant designed to help users solve progr
 
 ## Contributing
 
-Pull requests are welcome! Please open an issue first to discuss major changes or new features. Make sure to follow best practices and update/add tests as appropriate[4][7].
+Pull requests are welcome! 
 
 ## License
 
