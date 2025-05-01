@@ -65,7 +65,7 @@ This project is a coding-focused AI assistant designed to help users solve progr
 🧠 ...  {"step": "plan", "content": "..."}
 🤖 :  {"step": "output", "content": "Python file is created with a function named sum which can be used to add two numbers."}
 ```
-
+![Example Interaction](sampleRun.png)
 ## Available Tools
 
 | Tool Name      | Description                                                        |
