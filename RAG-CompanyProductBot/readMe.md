@@ -100,12 +100,66 @@ Shafer is a brand or business unit that is part of the Emerson Automation Soluti
 
 ## 🧱 Tech Stack
 
-- **Python**
-- **LangChain**
-- **Open AI / Google Generative AI**
-- **OpenAI SDK**
-- **Qdrant Vector DB**
-- **PDF Parsing (PyPDFLoader)**
+| Component       | Technology                 |
+| --------------- | -------------------------- |
+| Embedding Model | OpenAI  |
+| Vector Store    | QdrantDB                   |
+| Backend         | Python                     |
+| Container       | Docker                     |
 
 
+## 🗂️ PDF Ingestion Pipeline
 
+This component processes raw PDF files into indexed vector data ready for semantic search.
+
+### 🖼️ Mermaid Diagram: PDF to Vector Store
+
+```mermaid
+flowchart TD
+    A[PDF Files 60,000+] --> B[Text Extraction using Langchain PDF Loader]
+    B --> C[Chunking & Cleaning]
+    C --> D[Embedding using OpenAI Embeddings API]
+    D --> E[Store in Qdrant Vector DB]
+```
+
+### Steps
+
+1. **PDF Extraction**: Text is extracted using LangChain's document loaders.
+2. **Chunking**: Text is split into overlapping segments (for context).
+3. **Embedding**: Each chunk is converted to a vector using OpenAI.
+4. **Storage**: Chunks + metadata are stored in **QdrantDB**.
+
+---
+
+## 💬 Query Processing & Answer Generation
+
+When a user asks a question, the system performs multiple stages of processing to ensure accurate retrieval.
+
+### 🖼️ Mermaid Diagram: Query → Answer Pipeline
+
+```mermaid
+flowchart LR
+    A[User Query] --> B[Query Decomposition]
+    B --> C[Embedding of Sub-queries using OpenAI]
+    C --> D[Semantic Search in QdrantDB]
+    D --> E[Top Relevant Chunks]
+    E --> F[Answer Synthesis using LangChain + LLM]
+    F --> G[Response to User]
+```
+
+### Steps
+
+1. **Query Decomposition**: Breaks complex queries into simpler sub-queries (e.g., "What are the specs and warranty?" → two separate lookups).
+2. **Vector Embedding**: Converts each sub-query to an embedding.
+3. **Vector Search**: Searches Qdrant for top-matching document chunks.
+4. **Answer Construction**: Combines retrieved context and uses LLM to generate response.
+
+---
+
+
+## 🔮 Future Work
+
+* ✅ Multi-lingual PDF support
+* ✅ Hybrid keyword + semantic search
+* ✅ UI frontend with Gradio, Streamlit or React
+* ✅ Observability using Langsmith
