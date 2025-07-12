@@ -5,7 +5,7 @@ I created a completely offline RAG system in this project.  Well, what does that
 ### What is RAG System
 A RAG system is a AI Chatbot whose knowledge has been enhanced with some proprietary data of your choice so that your chatbot can answer questions based on that knowledge, which it otherwise does not have access to.  For example, in this project, I had some product manuals and I fed those into the RAG system.  Once done, now my RAG system makes that knowledge available to me through an easy-to-use chatbot 
 
-Internally RAG system uses a `vector database` to store data. This database is special though.  Instead of storing just text, it stores "meanings" of the text (called semantics).  And these special databases then allow us to search based on meaning of the query, rather than just words in the query. Now when a user query comes, we convert it into its equivalent embedding, then search document chunks from the knowledge system that match the given query, and send all this to our `LLM` which processes all the information, and gives a nice human-understandable output.
+Internally RAG system uses a `vector database` to store data. This database is special though.  Instead of storing just text, it stores "meanings" of the text (called semantics).  And these special databases then allow us to search based on meaning of the query, rather than just _words_ in the query. Now when a user query comes, we convert it into its equivalent embedding, then search document chunks from the knowledge system that match the given query, and send all this to our `LLM` which processes all the information, and gives a nice human-understandable output.
 ![RAG](https://www.dailydoseofds.com/content/images/size/w1000/2024/10/rag.gif)
 Diagram courtesy https://www.dailydoseofds.com
 
@@ -27,7 +27,7 @@ This app allows one to:
 
 Here is a screenshot of the system that shows on the left side, the three documents that we have put in our knowledge system.  We can see how the chatbot is now able to answer queries that are very very specific to the information that is only contained in the documents.
 
-![Demo Screenshot](images\demo_screenshot.png)
+![Demo Screenshot](images/demo_screenshot.png)
 
 
 ---
@@ -218,9 +218,9 @@ def ingestFile(self, pdfPath):
 ```
 What happens here:
 
-- Document Conversion: Extracts text and structure from PDF
-- Hybrid Chunking: Intelligently splits content preserving context
-- Metadata Extraction: Captures filename, page numbers, and titles
+- Document Conversion: We are using industry leading open source library called Docling (developed by IBM) for document parsing.  It is extracting text and structure from PDF
+- Hybrid Chunking: Intelligently splits content preserving context.  Docling has out of the box support for popular chunking algorithms (so no need to use a separate library like langchain for that).  Hybrid chunking is basically hierarchical chunking which is considered pretty good in the chunking world. 
+- Metadata Extraction: Captures filename, page numbers, and titles. Docling shines here.  It can extract very detailed information.
 - Vector Storage: Automatically generates and stores embeddings in LanceDB 
 
 ### 💬 Streamlit Interface for creating Chatbot (chat.py)
@@ -279,11 +279,14 @@ Also unstructured.io seems to have some bugs when I tried to experiment with som
 I found the architecture of Docling to be much more understandable to me (I dont like too much abstraction). Docling converts ANY document to an internal representation that they called docling doc and then the same can be converted into any of the required formats.  So parsing is required only once.  See this image.
 ![doclingArchitecture](https://docling-project.github.io/docling/assets/docling_processing.png)
 
+Also another very cool thing is that we dont have to explicitly use different functions for different document types (.PDF, DOCX, PPTX, XLSX, HTML, WAV, MP3, images (PNG, TIFF, JPEG,..)).  It automatically detects and parses different file types. We just use the `converter.convert` method.  One limitation I found though: it seems they are not supportin parsing text files right now out of the box, so [some hacking required there by reading the .txt as a .md file!](https://github.com/docling-project/docling/discussions/1145)
+
+
 ### Vector Database - LandeDB and Alternatives
 LanceDB is an open-source, serverless vector database that's designed for AI applications. It's built on Lance, a columnar data format optimized for machine learning workloads.
 
-I also had option to use QDrantDB, which is another great open source alternative.  
-I have worked with QDrantDB in the past, wherein I deployed it as a docker container
+I also had option to use Qdrant DB, which is another great open source alternative.  
+I have worked with Qdrant DB in the past, wherein I deployed it as a docker container
 We interact with it using APIs (via packages in python)
 
 LanceDB, on the other hand, simply runs as a embedded database.  Its lightening fast.
@@ -311,7 +314,7 @@ LanceDB and Qdrant are both vector databases, but they have different architectu
       ```
       Here is a concrete example
 
-      ![Example](images\lanceDB_sqlSearch.png)
+      ![Example](images/lanceDB_sqlSearch.png)
 
     2. Compression Efficiency
         - Lance: Similar values in columns compress better (e.g., all prices together)
@@ -492,20 +495,12 @@ streamlit run chat.py
 
 ---
 
-## 📦 Requirements
-- Python >= 3.9
-- [LanceDB](https://lancedb.github.io/)
-- [Ollama](https://ollama.com/) (for local LLM support)
-- Streamlit
-
----
-
-## ❤️ Acknowledgements
+## 📦 Technical Stack
 - [LanceDB](https://lancedb.github.io/) for blazing-fast vector storage.
 - [Ollama](https://ollama.com/) for privacy-first local LLMs.
 - [Streamlit](https://streamlit.io/) for interactive web apps.
 - [Sentence Transformers](https://www.sbert.net/) for embedding magic.
-
+- [Docling](https://github.com/docling-project/docling) for OCR and ML-based document parsing and chunking
 ---
 
 ## 📜 License
