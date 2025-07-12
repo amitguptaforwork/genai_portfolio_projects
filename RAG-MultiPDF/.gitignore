@@ -1,0 +1,6 @@
+venv
+__pycache__
+.
+chat.py
+RagSystem.py
+test.ipynb

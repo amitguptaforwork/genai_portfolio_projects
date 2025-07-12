@@ -1,0 +1,9 @@
+requests
+ipykernel
+python-dotenv
+ollama
+pydantic
+docling
+lancedb
+streamlit
+sentence_transformers
