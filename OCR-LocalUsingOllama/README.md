@@ -5,9 +5,13 @@ This project leverages Llama 3.2 vision and Streamlit to create a 100% locally r
 
 Unlike traditional OCR software like Tesseract, this app utilizes the more powerful system - an LLM to do the same.  The results are much better in most cases.  Also the LLM is going to run locally in our system, thereby ensuring privacy as well as no charges !
 
-Ofcourse, the hardware we have locally matters.  I tried this on a system with no GPU (AMD Ryzen 7 5700G with Radeon Graphics,3.80 GHz) and 32GB RAM. There is no GPU used (the inbuilt GPU in Ryzen 5700G is not available to us :(, most ML code is right now targeted to Nvidia gpus ).  It is taking more than 15 minutes to process an image.
+Ofcourse, the hardware we have locally matters.  I tried this on a system with no GPU (AMD Ryzen 7 5700G with Radeon Graphics,3.80 GHz) and 32GB RAM. There is no GPU used (the inbuilt GPU in Ryzen 5700G is not available to us :(, most ML code is right now targeted to Nvidia gpus ). ❗**It is taking more than 15 minutes to process an image.❗**
 
-Then I set it up on Google Colab Free tier that gives us 15GB GPU RAM, 12b GB System RAM and 112.6 GB Space.  I have included steps in this file below explaining how to setup this code on Google Colab
+
+Then I set it up on Google Colab Free tier that gives us 15GB GPU RAM, 12b GB System RAM and 112.6 GB Space.  
+✅ **We got response in 45 seconds**
+
+I have included steps in this file below explaining how to setup this code on Google Colab
 
 Here is the app in action, running from colab
 ![colabrun](images/TestOnColab.gif)
