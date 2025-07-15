@@ -195,7 +195,7 @@ Here we basically wrote our app.py as a local file so that in next steps, stream
 !npm install localtunnel
 ```
 ![installlocaltunnel](images/installlocaltunnel.png)
-### What is LocalTunner and why we need it
+### What is LocalTunnel and why we need it
 
 LocalTunnel is a free service that creates secure tunnels to expose your local development server to the internet through a public URL.
 Key points:
