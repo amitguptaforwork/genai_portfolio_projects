@@ -161,6 +161,15 @@ sequenceDiagram
 
 This guide walks you through setting up Ollama with Llama 3.2 Vision model on Google Colab and running a Streamlit OCR application.
 
+See this file for full code of Colab file
+
+[👉 View the Jupyter Notebook](OCR_StreamlitOllamaLlama.ipynb)
+
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/amitguptaforwork/genai_portfolio_projects/blob/master/OCR-LocalUsingOllama/OCR_StreamlitOllamaLlama.ipynb)
+
+
+
 ## Prerequisites
 
 - Google Colab account
