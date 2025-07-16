@@ -1,4 +1,4 @@
-# 📚 RAG-Powered PDF Chatbot with LanceDB and Streamlit -works completlely offline !
+# 📚 RAG-Powered PDF Chatbot with LanceDB and Streamlit -works completely offline !
 
 I created a completely offline RAG system in this project.  Well, what does that even mean !
 

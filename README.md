@@ -3,7 +3,7 @@
 This repository showcases innovative GenAI projects that demonstrate practical applications of artificial intelligence in solving real-world problems. Each project highlights different aspects of AI technologies including autonomous agents, retrieval-augmented generation, and natural language processing.
 
 
-## [RAG-Powered PDF Chatbot with LanceDB and Streamlit -works completlely offline !](https://github.com/amitguptaforwork/genai_portfolio_projects/blob/master/RAG-MultiPDF/readme.md)
+## [RAG-Powered PDF Chatbot with LanceDB and Streamlit -works completely offline !](https://github.com/amitguptaforwork/genai_portfolio_projects/blob/master/RAG-MultiPDF/readme.md)
 **Python | LanceDB | Streamlit | Docling | Ollama | Gemma3 | Sentence Transformers**
 
 I created a **completely offline** RAG system in this project.  We can upload any kind of documents like PDF, HTML, etc to our system.  A knowledge system is built by first using **Docling** to parse the documents into text and then saving that info in **LanceDB** as vector store.  Then, it can answer any user query by using the knowledge system and **Gemma3 LLM**.  Everything (including the vector store and LLM) is running locally, so total privacy and free operation.
