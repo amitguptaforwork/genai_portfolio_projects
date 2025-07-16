@@ -25,7 +25,7 @@ This project is a coding-focused AI assistant designed to help users solve progr
 
 
 ## [OCR-LocalUsingOllama and Llama3.2 Vision Model](https://github.com/amitguptaforwork/genai_portfolio_projects/blob/master/OCR-LocalUsingOllama/README.md)
-**Python | Llama3.2 Vision LLM | Streamlit |Google Colab | LocalTunnel | Ollama
+**Python | Llama3.2 Vision LLM | Streamlit |Google Colab | LocalTunnel | Ollama**
 
 This project demonstrates how easily we can use an LLM locally.  It uses **Llama 3.2 vision** and **Streamlit** to create a 100% locally running OCR app.  We can give any scanned image to the app and it will try to give us text out of it.
 I demonstrate how to set it up completely locally if you have a decent machine or use the free hardware provided by **Gooogle Colab** to still run your code pretty much privately.  We setup **Ollama** in Google Colab and then use **LocalTunnel** to expose the system to the outside world!
