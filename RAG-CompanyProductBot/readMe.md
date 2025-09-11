@@ -95,7 +95,7 @@ Collection 'shaferactuationsolutionsen5922766' already exists. Using the existin
 🧠... {'step': 'Think', 'content': "Given that Shafer is a 'mark of one of the Emerson family of business units' and the document is copyrighted by 'Emerson Automation Solutions', it's reasonable to infer that Shafer is a subsidiary, product line, or brand owned by Emerson."}
 Shafer is a brand or business unit that is part of the Emerson Automation Solutions family. Therefore, Shafer is under the ownership or management of Emerson.
 ```
-![Example Interaction](sampleRun.png)
+![Example Interaction](images/sampleRunRAGCompanyBot.png)
 ---
 
 ## 🧱 Tech Stack
