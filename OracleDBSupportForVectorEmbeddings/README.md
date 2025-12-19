@@ -23,7 +23,7 @@ The best part?
 - Machine learning models called LLMs have since been designed to do this task.
 - Now that these models are trained and available for use for us, I can essentially give a word and search for all words that are similiar to that word.  
 - This, in technical jargon is called a Vector search because the "words" or tokens are stored as mathematical numbers in an array-like structure (aka Vector) internally by the database 
-- But how may this be useful.   
+- But how may this be useful (in a enterprise setting with real data).   
   - Imagine a table with 10 business columns. Until now, you couldn’t search it using plain English or semantically. 
   - What does **semantic** mean here.  Example, if you stored cities like Hyderabad, Mumbai, Delhi, Paris, London — the DB couldn’t select rows for you if you said `search all rows for me from India`.
     - Note- you dont want to hardcode which cities are in India
