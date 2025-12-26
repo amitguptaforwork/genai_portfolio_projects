@@ -114,6 +114,7 @@ config:
 ---
 sequenceDiagram
 
+    participant U as User
     participant S as Streamlit App
     participant R as RagSystem
     participant D as Document Converter
@@ -126,13 +127,15 @@ sequenceDiagram
     S->>R: Call ingestFile()
     R->>D: Convert PDF to document
     D->>C: Chunk document
-    C->>R: Return chunks
+    C->>D: Return chunks
+    D->>R: Return chunks
     R->>L: Store chunks with embeddings
-    L->>S: Confirm storage
+    L->>R: Confirm storage
+    R->>S: Confirm storage
     S->>U: Show success 
 
 %%{init:{'theme':'dark'}}%%
-%%{init:{'themeCSS':'g:nth-of-type(3) rect.actor { fill: #65631b; } g:nth-of-type(10) rect.actor { fill: #65631b; }g:nth-of-type(7) rect.actor { fill: #1F85DE; } g:nth-of-type(14) rect.actor { fill: #1F85DE; }'}}%%
+%%{init:{'themeCSS':'g:nth-of-type(2) rect.actor { fill: #65631b; } g:nth-of-type(9) rect.actor { fill: #65631b; }g:nth-of-type(6) rect.actor { fill: #1F85DE; } g:nth-of-type(13) rect.actor { fill: #1F85DE; }'}}%%
 
 ```
 
